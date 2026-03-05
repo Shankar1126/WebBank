@@ -5,6 +5,7 @@
 /**
  * Interface describing a user account.
  */
+
 export interface Account {
   id: string;
   name: string;

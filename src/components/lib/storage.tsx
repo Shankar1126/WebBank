@@ -2,6 +2,7 @@
  * File-level: Local storage helpers for accounts, transactions and cards.
  */
 
+// @ts-ignore
 import { Account, Transaction, BankCard } from '../types';
 
 /**

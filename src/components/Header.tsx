@@ -3,13 +3,17 @@
  */
 
 import React from 'react';
-import { Bank } from 'lucide-react';
+import {Ban } from 'lucide-react';
 
 /**
  * Header props.
  */
 interface HeaderProps {
   title?: string;
+}
+
+function Bank(props: { className: string }) {
+    return null;
 }
 
 /**

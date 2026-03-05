@@ -1,9 +1,11 @@
 {
-  "name": "web-creator",
+  "name": "web-bank",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "node scripts/build.mjs",
-    "build": "node scripts/build.mjs --production"
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "start": "react-router-serve ./build/server/index.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
