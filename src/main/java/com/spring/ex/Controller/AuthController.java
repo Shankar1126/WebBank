@@ -33,8 +33,9 @@ public class AuthController {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
+        // your logic
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody AuthRequest req) {
+    public ResponseEntity<?> login( @RequestBody AuthRequest req) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(req.getUsername(), req.getPassword()));
             // load user to get role

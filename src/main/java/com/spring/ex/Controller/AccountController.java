@@ -20,26 +20,35 @@ public class AccountController {
 
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
-
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<Account> createAccount(@Valid @RequestBody CreateAccountRequest req) {
-        Account a = accountService.createAccount(req.getName(), req.getEmail(), req.getInitialDeposit());
-        return ResponseEntity.created(URI.create("/api/accounts/" + a.getId())).body(a);
+    public ResponseEntity<Account> createAccount(
+            @Valid @RequestBody CreateAccountRequest req) {
+
+        Account a = accountService.createAccount(
+                req.getName(),
+                req.getEmail(),
+                req.getInitialDeposit()
+        );
+
+        return ResponseEntity
+                .created(URI.create("/api/accounts/" + a.getId()))
+                .body(a);
     }
+
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
+
     public ResponseEntity<List<Account>> list() {
         return ResponseEntity.ok(accountService.listAccounts());
     }
+
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+
     public ResponseEntity<Account> getById(@PathVariable String id) {
         return accountService.findById(id)
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElse(ResponseEntity.notFound().build());
     }
 }
-

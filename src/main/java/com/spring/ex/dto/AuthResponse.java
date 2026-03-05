@@ -1,5 +1,6 @@
 package com.spring.ex.dto;
 
+
 public class AuthResponse {
     private String token;
 
